@@ -22,10 +22,10 @@ function App() {
             <div className='logo-wrapper'>
                 <img className='logo' src={logo}></img>
             </div>
-            {(typeof data.book === 'undefined') ? (
+            {(typeof data.length === 0) ? (
                 <p>Loading...</p>
             ) : (
-                <p>{data.book}</p>
+                <p></p>
             )}
         </div>
     );

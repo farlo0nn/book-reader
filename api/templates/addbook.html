@@ -1,0 +1,22 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="mySidenav" class="sidenav" sidenav>
+    <a href="javascript:void(0)" class="closebtn" id="closeNav" onclick="closeNav()">&times;</a>
+    <div class="track-info">
+        <br>
+    </div>
+</div>
+
+<div class="form-wrapper">
+    <form class="form" name="addLesson" id="addLesson" method="post" enctype="multipart/form-data">
+        {{ bookForm.hidden_tag() }}
+        {{ bookForm.name(placeholder='Book Title') }}
+        {{ bookForm.pages(placeholder='Pages') }}
+        {{ bookForm.author_name(placeholder='Author\'s Name') }}
+        {{ bookForm.submit  () }}
+    </form>
+</div>
+  
+{% endblock content %}

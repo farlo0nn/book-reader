@@ -33,6 +33,8 @@ setup.py
 __pycache__ 
 /api/__pycache__
 
-
 #db
 /instance
+
+#logger
+log.log
