@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from './images/logo.png';
+import './css/App.scss';
+import React from 'react'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [data, setData] = React.useState([{}]);
+    
+    React.useEffect(() => {
+        fetch("/books").then(
+            res => res.json()
+        ).then(
+            data => {
+                setData(data)
+                console.log(data)
+            }
+        )
+    }, []);
+
+    return (
+        <div className="App">
+            <div className='logo-wrapper'>
+                <img className='logo' src={logo}></img>
+            </div>
+            {(typeof data.book === 'undefined') ? (
+                <p>Loading...</p>
+            ) : (
+                <p>{data.book}</p>
+            )}
+        </div>
+    );
 }
 
 export default App;
